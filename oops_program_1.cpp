@@ -1,58 +1,69 @@
 #include<iostream>
-Class student
+using namespace std;
+
+//Base class
+
+class Student
 {
-   Protected:
+   protected:
        int roll_number;
    public:
        void get_number(int);
        void put_number(void);
  }
-Void student::get_number(int a)
+void student::get_number(int number)
 {
-    Roll_number=a;
+    roll_number=number;
 }
-Void student::put_number()
+void student::put_number()
 {
-     Cout<<”Roll Number:”<<roll_number<<”\n”;
-}
-Class test:public student        // derivation//
-{
-       protected:
-             float sub1;
-             float sub 2;
-public:
-     void get_marks(float,float);
-void put_marks(void);
-};
-Void test::get_marks(float x,float y)
-{
-  Sub1=x;
-  Sub2=y;
-}
-Void test::put_marks(float x,float y)
-{
-  Cout<<”Marks in sub1=”<<sub1<<”\n;
-  Cout<<”marks in sub 2=”<<sub2<<”\n”;
+     cout <<"Roll Number" <<roll_number<< "\n";
 }
 
-Class result:public test   //derivation//
+//First level Derivation
+
+class mark:public student        
 {
-    Float total;
-Public:
-   Void display(void);
+       protected:
+             float subject1;
+             float subject2;
+public:
+     void get_marks(float,float);
+     void put_marks(void);
 };
-Void result::display(void)
+
+void mark::get_marks(float number1,float number2)
 {
-  Total=sub1+sub2;
+  subject1=number1;
+  subject2=number2;
+}
+void mark::put_marks(float number1,float number2)
+{
+  cout<< "Marks in subject1=" <<subject1<< "\n";
+  cout<< "Marks in subject2=" <<subject2<< "\n";
+}
+
+//Second Level Derivation
+
+class result:public mark  
+{
+    float total;
+Public:
+   void display(void);
+};
+
+void result::display(void)
+{
+  total=sub1+sub2;
 Put_number();
 Put_marks();
-Cout<<”Total=”<<total”\n;
+cout<<"Total=" <<total "\n";
 }
+
 int main()
 {
-  result student1;
-student1.get_number(11);
-student1.get_marks(75.0,85.5);
-student1.display();
-getch();
+  result Student1;
+Student1.get_number(11);
+Student1.get_marks(75.0,85.5);
+Student1.display();
 }
